@@ -5,7 +5,7 @@
   <title>Snake Game - Nokia Style</title>
   <style>
     body {
-      background: #000;
+      background: #001a00;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -13,6 +13,12 @@
       height: 100vh;
       margin: 0;
       font-family: monospace;
+      color: #0f0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
       color: #0f0;
     }
 
@@ -55,12 +61,14 @@
   </style>
 </head>
 <body>
+  <h1>Classic Nokia Snake Game</h1>
+
   <div id="overlay">
     <div id="scoreDisplay"></div>
     <button onclick="restartGame()">Restart</button>
   </div>
 
-  <canvas id="game" width="400" height="400"></canvas>
+  <canvas id="game" width="480" height="480"></canvas>
 
   <script>
     const canvas = document.getElementById("game");
@@ -68,15 +76,15 @@
     const overlay = document.getElementById("overlay");
     const scoreDisplay = document.getElementById("scoreDisplay");
 
-    const box = 20;
-    const canvasSize = 400;
+    const box = 30;
+    const canvasSize = 480;
     const rows = canvasSize / box;
     const columns = canvasSize / box;
 
     let snake, direction, food, score, speed, game;
 
     function initGame() {
-      snake = [{ x: 9 * box, y: 9 * box }];
+      snake = [{ x: 8 * box, y: 8 * box }];
       direction = "RIGHT";
       food = randomFoodPosition();
       score = 0;
@@ -149,7 +157,6 @@
           speed -= 5;
           game = setInterval(draw, speed);
         }
-
       } else {
         snake.pop();
       }
@@ -165,7 +172,7 @@
       initGame();
     }
 
-    // Start
+    // Start game
     initGame();
   </script>
 </body>
